@@ -1,23 +1,82 @@
 <html>
+
   <head>
     <style type="text/css">
       #bobwhaley {
-        width: 100%;
-        height: 100%;
+          width: 100%;
+          height: 100%;
       }
     </style>
+    
+    <script>
+      function showDiv(text, image) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDiv(div, text, image);
+              }
+          }, false);
+
+          drawDiv(div, text, image);
+
+          document.body.appendChild(div);
+
+      }
+
+      function drawDiv(div, text, image) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "black";
+          div.style.opacity = "1.00";
+          div.style.color = "white";
+          div.innerHTML = "<br><center><img src= 'images/" + image + ".JPG' height='90%'><br><div style='width: 90%'>" + text + "</div></center>";
+
+      }
+      </script>
+
   </head>
+
   <body>
     <div id="bobwhaley"></div>
     Bob Whaley's Wall Map
-    <img id="right-arrow-overlay"
-         src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg"
+    <img id="locator1"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
          alt="Right arrow"
-         width="20">
-    <img id="right-arrow-overlay2"
-         src="http://upload.wikimedia.org/wikipedia/commons/7/7a/Red_Arrow_Right.svg"
+         width="36"
+	 onClick="showDiv('The map on the wall in Charlottesville', 'DSC02171'); return false;">
+
+    <img id="locator2"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
          alt="Right arrow"
-         width="20">
+         width="36"
+	 onClick="showDiv('Goshen Pass Apr 26th, 2009', 'IMG_0634'); return false;">
+    
+    <img id="locator3"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
+	 alt="Right arrow"
+         width="36"
+	 onClick="showDiv('Mormans River, The Last Canoe Trip, Oct 10th, 2010', 'IMG_1826'); return false;">
+    
+    <img id="locator4"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="36"
+         onClick="showDiv('James River, Mothers Day 2001', '100-0178'); return false;">
+
+    <img id="locator5"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="36"
+         onClick="showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'DSC02176'); return false;">
 
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
     <script>
@@ -26,25 +85,44 @@
         prefixUrl:     '//openseadragon.github.io/openseadragon/images/',
         tileSources:   'bobwhaley.dz.dzi',
         overlays: [{
-          id: 'right-arrow-overlay',
+          id: 'locator1',
           x: 0.706245,
           y: 0.300244,
-          placement: 'RIGHT',
-          checkResize: false
+          placement: 'CENTER',
+            checkResize: false,
             },
           {
-          id: 'right-arrow-overlay2',
+          id: 'locator2',
           x: 0.573329,
           y: 0.322581,
-          placement: 'RIGHT',
+          placement: 'CENTER',
           checkResize: false
-        } ],
+          },
+          {
+          id: 'locator3',
+          x: 0.6909,
+          y: 0.29,
+          placement: 'CENTER',
+            checkResize: false,
+	  },
+          {
+          id: 'locator4',
+          x: 0.7677,
+          y: 0.368,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+          {
+          id: 'locator5',
+          x: 0.710,
+          y: 0.299,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+		  ],
       });
-      viewer.addHandler("open", function(){
-          jQuery("right-arrow-overlay").click(function(e){
-            alert('clicked');
-          });
-        });
     </script>
+
   </body>
+
 </html>

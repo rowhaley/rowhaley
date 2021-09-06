@@ -1,5 +1,5 @@
 <html>
-
+  <title>Bob Whaley's Wall Map</title>
   <head>
     <style type="text/css">
       #bobwhaley {
@@ -37,10 +37,10 @@
           div.style.height = "100%";
           div.style.position = "fixed";
           div.style.visibility = "visible";
-          div.style.background = "black";
+          div.style.background = "transparent";
           div.style.opacity = "1.00";
-          div.style.color = "white";
-          div.innerHTML = "<br><center><img src= 'images/" + image + ".JPG' height='90%'><br><div style='width: 90%'>" + text + "</div></center>";
+          div.style.color = "black";
+          div.innerHTML = "<br><center><img src= '" + image + "' height='90%'><div style='width: 90%'><h1>" + text + "</h1></div></center>";
 
       }
       </script>
@@ -49,36 +49,46 @@
 
   <body>
     <div id="bobwhaley"></div>
-    Bob Whaley's Wall Map
     <img id="locator1"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
          alt="Right arrow"
-         width="36"
-	 onClick="showDiv('The map on the wall in Charlottesville', 'DSC02171'); return false;">
+         width="24"
+	 onMouseOver="showDiv('The map on the wall in Charlottesville', 'images/DSC02171.JPG'); return false;">
 
     <img id="locator2"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
          alt="Right arrow"
-         width="36"
-	 onClick="showDiv('Goshen Pass Apr 26th, 2009', 'IMG_0634'); return false;">
+         width="24"
+	 onMouseOver="showDiv('Goshen Pass Apr 26th, 2009', 'images/IMG_0634.JPG'); return false;">
     
     <img id="locator3"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
 	 alt="Right arrow"
-         width="36"
-	 onClick="showDiv('Mormans River, The Last Canoe Trip, Oct 10th, 2010', 'IMG_1826'); return false;">
+         width="24"
+	 onMouseOver="showDiv('Mormans River, The Last Canoe Trip, Oct 10th, 2010', 'images/IMG_1826.JPG'); return false;">
     
     <img id="locator4"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="36"
-         onClick="showDiv('James River, Mothers Day 2001', '100-0178'); return false;">
+         width="24"
+         onMouseOver="showDiv('James River, Mothers Day 2001', 'images/100-0178.JPG'); return false;">
 
     <img id="locator5"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="36"
-         onClick="showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'DSC02176'); return false;">
+         width="24"
+         onMouseOver="showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'images/DSC02176.JPG'); return false;">
 
+    <img id="locator6"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="24"
+         onMouseOver="showDiv('Bob paddles a kayak to the WWI Ghost Fleet, ~1939 (undated photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg'); return false;">
+
+    <img id="locator7"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="24"
+         onMouseOver="showDiv('Bob swims across the Rappahannock on a dare, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg'); return false;">
+    
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
+
     <script>
       var viewer = OpenSeadragon({
         id:            'bobwhaley',
@@ -119,6 +129,21 @@
           placement: 'CENTER',
             checkResize: false,
           },
+          {
+          id: 'locator6',
+          x: 0.97,
+          y: 0.46,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+          {
+          id: 'locator7',
+          x: 0.946,
+          y: 0.33,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+
 		  ],
       });
     </script>

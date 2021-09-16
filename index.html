@@ -53,7 +53,7 @@
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
          alt="Right arrow"
          width="24"
-	 onMouseOver="showDiv('The map on the wall in Charlottesville', 'images/DSC02171.JPG'); return false;">
+	 onMouseOver="showDiv('Original map on the wall in Charlottesville', 'images/DSC02171.JPG'); return false;">
 
     <img id="locator2"
 	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
@@ -87,13 +87,23 @@
          width="24"
          onMouseOver="showDiv('Bob swims across the Rappahannock on a dare, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg'); return false;">
     
+    <img id="locator8"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="24"
+         onMouseOver="showDiv('Natural Bridge with Olie Fordham, June 1982', 'images/NaturalBridge.JPG'); return false;">
+    
+    <img id="locator9"
+	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
+         width="24"
+         onMouseOver="showDiv('Cedar Creek with Olie Fordham, June 1982', 'images/CedarCreek.JPG'); return false;">
+
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
       var viewer = OpenSeadragon({
         id:            'bobwhaley',
         prefixUrl:     '//openseadragon.github.io/openseadragon/images/',
-        tileSources:   'bobwhaley.dz.dzi',
+        tileSources:   '../rowhaley/bobwhaley.dz.dzi',
         overlays: [{
           id: 'locator1',
           x: 0.706245,
@@ -140,6 +150,20 @@
           id: 'locator7',
           x: 0.946,
           y: 0.33,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+          {
+          id: 'locator8',
+          x: 0.5598,
+          y: 0.3765,
+          placement: 'CENTER',
+            checkResize: false,
+          },
+          {
+          id: 'locator9',
+          x: 0.5581,
+          y: 0.3747,
           placement: 'CENTER',
             checkResize: false,
           },

@@ -1,5 +1,6 @@
 <html>
   <title>Bob Whaley's Wall Map</title>
+  <link rel="icon" type="image/svg+xml" href="images/BSicon_uCANOEmod.svg">
   <head>
     <style type="text/css">
       #bobwhaley {
@@ -47,55 +48,52 @@
 
   </head>
 
-  <body>
+  <body style="background-color:black;"
     <div id="bobwhaley"></div>
     <img id="locator1"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
-         alt="Right arrow"
-         width="24"
+	 src="images/tango-right-arrow-red.svg" alt="Right arrow"
+         width="16"
 	 onMouseOver="showDiv('Original map on the wall in Charlottesville', 'images/DSC02171.JPG'); return false;">
 
     <img id="locator2"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
-         alt="Right arrow"
-         width="24"
+	 src="images/tango-right-arrow-red.svg" alt="Right arrow"
+         width="16"
 	 onMouseOver="showDiv('Goshen Pass Apr 26th, 2009', 'images/IMG_0634.JPG'); return false;">
     
     <img id="locator3"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png"
-	 alt="Right arrow"
-         width="24"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
 	 onMouseOver="showDiv('Mormans River, The Last Canoe Trip, Oct 10th, 2010', 'images/IMG_1826.JPG'); return false;">
     
     <img id="locator4"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
+	 src="images/tango-right-arrow-red.svg" alt="Right arrow"
+         width="16"
          onMouseOver="showDiv('James River, Mothers Day 2001', 'images/100-0178.JPG'); return false;">
 
     <img id="locator5"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
          onMouseOver="showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'images/DSC02176.JPG'); return false;">
 
     <img id="locator6"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
+	 src="images/tango-right-arrow-red.svg" alt="Right arrow"
+         width="16"
          onMouseOver="showDiv('Bob paddles a kayak to the WWI Ghost Fleet, ~1939 (undated photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg'); return false;">
 
     <img id="locator7"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
+	 src="images/tango-right-arrow-red.svg" alt="Right arrow"
+         width="16"
          onMouseOver="showDiv('Bob swims across the Rappahannock on a dare, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg'); return false;">
     
     <img id="locator8"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
-         onMouseOver="showDiv('Natural Bridge with Olie Fordham, June 1982', 'images/NaturalBridge.JPG'); return false;">
+	 src="images/tango-left-arrow-red.svg" alt="Right arrow"
+         width="16"
+         onMouseOver="showDiv('Natural Bridge with Ollie Fordham, June 1982', 'images/NaturalBridge.JPG'); return false;">
     
     <img id="locator9"
-	 src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Crosshair64.png" alt="Right arrow"
-         width="24"
-         onMouseOver="showDiv('Cedar Creek with Olie Fordham, June 1982', 'images/CedarCreek.JPG'); return false;">
+	 src="images/tango-right-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDiv('Cedar Creek with Ollie Fordham, June 1982', 'images/CedarCreek.JPG'); return false;">
 
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
@@ -108,63 +106,63 @@
           id: 'locator1',
           x: 0.706245,
           y: 0.300244,
-          placement: 'CENTER',
+          placement: 'RIGHT',
             checkResize: false,
             },
           {
           id: 'locator2',
           x: 0.573329,
           y: 0.322581,
-          placement: 'CENTER',
+          placement: 'RIGHT',
           checkResize: false
           },
           {
           id: 'locator3',
           x: 0.6909,
           y: 0.29,
-          placement: 'CENTER',
+          placement: 'LEFT',
             checkResize: false,
 	  },
           {
           id: 'locator4',
           x: 0.7677,
           y: 0.368,
-          placement: 'CENTER',
+          placement: 'RIGHT',
             checkResize: false,
           },
           {
           id: 'locator5',
           x: 0.710,
           y: 0.299,
-          placement: 'CENTER',
+          placement: 'LEFT',
             checkResize: false,
           },
           {
           id: 'locator6',
-          x: 0.97,
-          y: 0.46,
-          placement: 'CENTER',
+          x: 0.975,
+          y: 0.465,
+          placement: 'RIGHT',
             checkResize: false,
           },
           {
           id: 'locator7',
           x: 0.946,
-          y: 0.33,
-          placement: 'CENTER',
+          y: 0.324,
+          placement: 'RIGHT',
             checkResize: false,
           },
           {
           id: 'locator8',
           x: 0.5598,
           y: 0.3765,
-          placement: 'CENTER',
+          placement: 'LEFT',
             checkResize: false,
           },
           {
           id: 'locator9',
           x: 0.5581,
           y: 0.3747,
-          placement: 'CENTER',
+          placement: 'RIGHT',
             checkResize: false,
           },
 

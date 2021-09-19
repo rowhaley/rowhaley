@@ -45,6 +45,46 @@
           div.innerHTML = "<br><center><img src= '" + image + "' height='90%'><div style='width: 90%'><h1>" + text + "</h1></div></center>";
 
       }
+
+      function showDivTxt(text) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.display = "none";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.display == "block") {
+		  drawDivTxt(div, text);
+              }
+          }, false);
+
+          drawDivTxt(div, text);
+
+          document.body.appendChild(div);
+
+      }
+      function drawDivTxt(div, text) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "90%";
+          div.style.height = "90%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "white";
+          div.style.opacity = "0.75";
+          div.style.color = "black";
+	  div.style.display = "block";
+	  div.style.margins = "100px auto";
+	  div.style.top = "100px";
+          div.innerHTML = "<center><iframe src= '" + text + "' width='90%' height='90%'></center>";
+
+      }
+      function openInNewTab(url) {
+	  window.open(url, '_blank').focus();
+      }
       </script>
 
   </head>
@@ -96,6 +136,11 @@
          width="16"
          onMouseOver="showDiv('Cedar Creek with Ollie Fordham, June 1982', 'images/CedarCreek.JPG'); return false;">
 
+    <img id="locator10"
+	 src="images/tango-right-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDivTxt('txt/Jerrys.html'); return false;">
+    
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -166,7 +211,13 @@
           placement: 'RIGHT',
             checkResize: false,
           },
-
+          {
+          id: 'locator10',
+          x: 0.465,
+          y: 0.351,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
 		  ],
       });
     </script>

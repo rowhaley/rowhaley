@@ -1,0 +1,29 @@
+<html>
+  <title>Bob Whaley's Wall Map</title>
+  <link rel="icon" type="image/svg" href="images/BSicon_uCANOEmod.svg">
+  <link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
+  <head>
+    <style type="text/css">
+      #bobwhaley {
+          width: 100%;
+          height: 100%;
+      }
+    </style>
+
+  </head>
+
+  <body style="background:black">
+    <div id="bobwhaley"></div>
+    <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
+
+    <script>
+      var viewer = OpenSeadragon({
+        id:            'bobwhaley',
+        prefixUrl:     '//openseadragon.github.io/openseadragon/images/',
+        tileSources:   '../rowhaley/bobwhaley.dz.dzi',
+      });
+    </script>
+
+  </body>
+
+</html>

@@ -42,7 +42,7 @@
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height='90%'><div style='width: 90%; text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+          div.innerHTML = "<center><img src= '" + image + "' height=90%><div text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
 
       }
 
@@ -71,9 +71,46 @@
   	      "<div style='background-color: rgb(255, 255, 255); width: 95%; position: static; margin: 20px auto; padding: 20px 30px 0px; top: 410px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
               "<iframe src='" + text + "'width=90%; height=90%'></iframe></div> </div>";
       }
+
+      function showDivAudio(text, image, audio) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDivAudio(div, text, image, audio);
+              }
+          }, false);
+
+          drawDivAudio(div, text, image, audio);
+
+          document.body.appendChild(div);
+
+      }
+
+      function drawDivAudio(div, text, image, audio) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "transparent";
+          div.style.opacity = "1.00";
+          div.style.color = "black";
+          div.innerHTML = "<center><img src= '" + image + "' height=80%><div text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><audio controls><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio><h1>" + text + "</h1></div></center>";
+
+      }
+
       function openInNewTab(url) {
 	  window.open(url, '_blank').focus();
       }
+
       </script>
 
   </head>
@@ -130,6 +167,26 @@
          width="16"
          onMouseOver="showDivTxt('txt/Jerrys.html'); return false;">
     
+    <img id="locator11"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDiv('Solo from Emporia, VA to Balgra, NC, circa 1980', 'images/BobandJohn.JPG'); return false;">
+    
+    <img id="locator12"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDiv('Rafting, New River Gorge, July 2006', 'images/NewRiverJuly2006.jpg'); return false;">
+    
+    <img id="locator13"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDivAudio('<a href=&quot//www.bobgramann.com/&quot>www.bobgramann.com</a>', 'images/MostlyTrueSongs.jpg', 'audio/TheBalladOfBobWhaley.mp3'); return false;">
+
+    <img id="locator14"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDiv('Fossilized Whale Bone, Meherrin River circa 1980', 'images/WhaleBone.jpg'); return false;">
+        
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -205,6 +262,34 @@
           x: 0.465,
           y: 0.351,
           placement: 'RIGHT',
+            checkResize: false,
+          },
+          {
+          id: 'locator11',
+          x: 0.966,
+          y: 0.664,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator12',
+          x: 0.342,
+          y: 0.295,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator13',
+          x: 0.011,
+          y: 0.73,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator14',
+          x: 0.844,
+          y: 0.541,
+          placement: 'LEFT',
             checkResize: false,
           },
 		  ],

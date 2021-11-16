@@ -31,6 +31,7 @@
 
       }
 
+
       function drawDiv(div, text, image) {
 
           div.style.left = "0";
@@ -42,7 +43,7 @@
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=90%><div text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+          div.innerHTML = "<center><img src= '" + image + "' height=90%><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
 
       }
 
@@ -103,7 +104,42 @@
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=80%><div text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><audio controls><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio><h1>" + text + "</h1></div></center>";
+          div.innerHTML = "<center><img src= '" + image + "' height=80%><div> <h1 style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><audio controls><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio><h1>" + text + "</h1></div></center>";
+
+      }
+
+      function showDivVideo(text, video) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDivVideo(div, text, video);
+              }
+          }, false);
+
+          drawDivVideo(div, text, video);
+
+          document.body.appendChild(div);
+
+      }
+
+      function drawDivVideo(div, text, video) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "transparent";
+          div.style.opacity = "1.00";
+          div.style.color = "black";
+          div.innerHTML = "<center><iframe width='90%' height='90%' src= '" + video + "' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title=" + text + "</center>";
 
       }
 
@@ -190,12 +226,22 @@
     <img id="locator15"
 	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
          width="16"
-         onMouseOver="showDiv('Tie River, Nelson County Downriver Race 2009', 'images/NelsonRace2009.JPG'); return false;">
+         onMouseOver="showDiv('Tye River, Nelson County Downriver Race 2009', 'images/NelsonRace2009.JPG'); return false;">
         
     <img id="locator16"
 	 src="images/tango-right-arrow-red.svg" alt="Left arrow"
          width="16"
          onMouseOver="showDiv('Great Rappahannock Whitewater Canoe Race 2008', 'images/RappahannockRace2008.JPG'); return false;">
+        
+    <img id="locator17"
+	 src="images/tango-right-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDivVideo('Broken Paddle New River Gorge 1970s', 'https://www.youtube.com/embed/843otVxCdUU'); return false;">
+        
+    <img id="locator18"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+         onMouseOver="showDiv('Victoria Reservoir by Lena Averill 1930s Swimming & Kayaking', 'images/VictoriaReservoir.JPG'); return false;">
         
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
@@ -314,6 +360,20 @@
           x: 0.8487,
           y: 0.2549,
           placement: 'RIGHT',
+            checkResize: false,
+          },
+          {
+          id: 'locator17',
+          x: 0.341,
+          y: 0.293,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
+          {
+          id: 'locator18',
+          x: 0.75,
+          y: 0.49,
+          placement: 'LEFT',
             checkResize: false,
           },
 		  ],

@@ -69,8 +69,8 @@
       function drawDivTxt(div, text) {
 	  div.innerHTML =
 	      "<div style='background-color: rgba(150, 150, 150, 0.5); overflow: hidden; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; z-index: 1000; display:block;'>" + 
-  	      "<div style='background-color: rgb(255, 255, 255); width: 95%; position: static; margin: 20px auto; padding: 20px 30px 0px; top: 410px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
-              "<iframe src='" + text + "'width=90%; height=90%'></iframe></div> </div>";
+  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
+              "<iframe src='" + text + "'width=99%; height=90%'></iframe></div> </div>";
       }
 
       function showDivAudio(text, image, audio) {
@@ -258,6 +258,11 @@
          width="16"
          onMouseOver="showDiv('Upper Tye River 2009', 'images/TyeRiver2009.JPG'); return false;">
 
+    <img id="locator22"
+	 src="images/tango-left-arrow-red.svg" alt="LEFT arrow"
+         width="16"
+         onMouseOver="showDiv('Gauley Sweets Falls 1987', 'images/GauleySweets1987.jpg'); return false;">
+
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -410,6 +415,13 @@
           x: 0.6325,
           y: 0.338,
           placement: 'RIGHT',
+            checkResize: false,
+          },
+          {
+          id: 'locator22',
+          x: 0.3585,
+          y: 0.269,
+          placement: 'LEFT',
             checkResize: false,
           },
 		  ],

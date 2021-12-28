@@ -104,8 +104,7 @@
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=80%><div> <h1 style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><audio controls><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio><h1>" + text + "</h1></div></center>";
-
+          div.innerHTML = "<center><img src= '" + image + "' height=80%><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></center>";
       }
 
       function showDivVideo(text, video) {
@@ -259,10 +258,15 @@
          onMouseOver="showDiv('Upper Tye River 2009', 'images/TyeRiver2009.JPG'); return false;">
 
     <img id="locator22"
-	 src="images/tango-left-arrow-red.svg" alt="LEFT arrow"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
          width="16"
-         onMouseOver="showDiv('Gauley Sweets Falls 1987', 'images/GauleySweets1987.jpg'); return false;">
+         onMouseOver="showDiv('Gauley River, Sweets Falls, 1987 (simulated multi-exposure)', 'images/GauleySweets1987.jpg'); return false;">
 
+    <img id="locator23"
+	 src="images/tango-left-arrow-red.svg" alt="Left arrow"
+         width="16"
+	 onMouseOver="showDivVideo('Goshen Pass mid 1970s', 'https://www.youtube.com/embed/rDg-bD4ei48?start=370&end=394;'); return false;">
+    
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -423,6 +427,13 @@
           y: 0.269,
           placement: 'LEFT',
             checkResize: false,
+          },
+          {
+          id: 'locator23',
+          x: 0.573329,
+          y: 0.322581,
+          placement: 'LEFT',
+          checkResize: false
           },
 		  ],
       });

@@ -342,6 +342,20 @@
           placement: 'LEFT',
             checkResize: false,
           },
+	  {
+          id: 'locator27',
+          x: 0.714,
+          y: 0.039,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+	  {
+          id: 'locator28',
+          x: 0.85,
+          y: 0.39,
+          placement: 'LEFT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -474,7 +488,17 @@
     <img id="locator26" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator26', clickHandler: function(event) {
-          showDiv('Danville Bicentenial, Dan River, May 14-23 1993 ', 'images/DanvilleBicentennial1993.jpg');}});
+          showDiv('Danville Bicentenial, Dan River, May 14-23 1993', 'images/DanvilleBicentennial1993.jpg');}});
+    </script>
+    <img id="locator27" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator27', clickHandler: function(event) {
+          showDiv('Potomac River Camp Sketch, April 1980 by Russell Goins Sister', 'images/CampDrawing1980.jpg');}});
+    </script>
+    <img id="locator28" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator28', clickHandler: function(event) {
+          showDiv('James River, Richmond upper section 8/1/2009, Jenny Wiley', 'images/20090801UpperRichmond.jpg');}});
     </script>
 
   </body>

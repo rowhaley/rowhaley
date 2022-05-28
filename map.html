@@ -356,6 +356,27 @@
           placement: 'LEFT',
             checkResize: false,
           },
+	  {
+          id: 'locator29',
+          x: 0.5359,
+          y: 0.0237,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
+	  {
+          id: 'locator30',
+          x: 0.583,
+          y: 0.015,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
+	  {
+          id: 'locator31',
+          x: 0.7205,
+          y: 0.312,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -499,6 +520,21 @@
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator28', clickHandler: function(event) {
           showDiv('James River, Richmond upper section 8/1/2009, Jenny Wiley', 'images/20090801UpperRichmond.jpg');}});
+    </script>
+    <img id="locator29" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator29', clickHandler: function(event) {
+          showDiv('Cheat Canyon takeout, Jenkinsville bridge', 'images/CheatCanyonTakeout.JPG');}});
+    </script>
+    <img id="locator30" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator30', clickHandler: function(event) {
+          showDiv('Youghiogheny River (actual location probably downstream in PA)', 'images/youghiogheny.jpg');}});
+    </script>
+    <img id="locator31" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator31', clickHandler: function(event) {
+          showDiv('Rivanna River 1975', 'images/1975Rivanna.jpg');}});
     </script>
 
   </body>

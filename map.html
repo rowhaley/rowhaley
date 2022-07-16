@@ -204,8 +204,8 @@
           },
           {
           id: 'locator7',
-          x: 0.946,
-          y: 0.324,
+          x: 0.9999,
+          y: 0.375,
           placement: 'RIGHT',
             checkResize: false,
           },
@@ -344,8 +344,8 @@
           },
 	  {
           id: 'locator27',
-          x: 0.714,
-          y: 0.039,
+          x: 0.735,
+          y: 0.037,
           placement: 'LEFT',
             checkResize: false,
           },
@@ -377,6 +377,34 @@
           placement: 'RIGHT',
             checkResize: false,
           },
+          {
+          id: 'locator32',
+          x: 0.0893,
+          y: 0.675,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator33',
+          x: 0.433,
+          y: 0.445,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator34',
+          x: 0.860,
+          y: 0.391,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator35',
+          x: 0.886,
+          y: 0.433,
+          placement: 'LEFT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -399,7 +427,7 @@
     <img id="locator4" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator4', clickHandler: function(event) {
-          showDiv('James River, Mothers Day 2001', 'images/100-0178.JPG');}});
+          showDiv('James River, Mothers Day 2002', 'images/100-0178.JPG');}});
     </script>
     <img id="locator5" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
@@ -409,12 +437,12 @@
     <img id="locator6" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator6', clickHandler: function(event) {
-	  showDiv('Bob paddles a kayak to the WWI Ghost Fleet, ~1939 (undated photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg');}});
+          showDivAudio('Bob paddles to the WWI Ghost Fleet, ~1938 (photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg', 'audio/CanvasKayak.mp3',);}});
     </script>
     <img id="locator7" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator7', clickHandler: function(event) {
-          showDiv('Bob swims across the Rappahannock on a dare, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg');}});
+          showDivAudio('Bob swims the Rappahannock to win a bet, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg', 'audio/SwimAcrossRappahannock.mp3',);}});
     </script>
     <img id="locator8" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
@@ -469,7 +497,7 @@
     <img id="locator18" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator18', clickHandler: function(event) {
-          showDiv('Victoria Reservoir by Lena Averill 1930s Swimming & Kayaking', 'images/VictoriaReservoir.JPG');}});
+          showDivAudio('Victoria Reservoir painting by Lena Averill', 'images/VictoriaReservoir.JPG', 'audio/TeachingBoyToSwim.mp3',);}});
     </script>
     <img id="locator19" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
@@ -514,7 +542,7 @@
     <img id="locator27" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator27', clickHandler: function(event) {
-          showDiv('Potomac River Camp Sketch, April 1980 by Russell Goins Sister', 'images/CampDrawing1980.jpg');}});
+          showDiv('Cacapon River Camp Sketch, April 1980 by Russell Goins Sister', 'images/CampDrawing1980.jpg');}});
     </script>
     <img id="locator28" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <script>
@@ -535,6 +563,26 @@
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator31', clickHandler: function(event) {
           showDiv('Rivanna River 1975', 'images/1975Rivanna.jpg');}});
+    </script>
+    <img id="locator32" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator32', clickHandler: function(event) {
+          showDiv('ACA Whitewater Open Canoe Downriver National Championships, 2008', 'images/2008_Nationals.JPG');}});
+    </script>
+    <img id="locator33" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator33', clickHandler: function(event) {
+          showDiv('Miss Virginia Tech 1948, Snow Woman', 'images/MissVaTech1948SnowWoman.jpg');}});
+    </script>
+    <img id="locator34" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator34', clickHandler: function(event) {
+          showDivVideo('Pick up Tom Michie from the Capitol for NC Canoe trip, 1970s', 'https://www.youtube.com/embed/oeZZn60b0_8');}});
+    </script>
+    <img id="locator35" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator35', clickHandler: function(event) {
+          showDivAudio('Bob takes PT boat up the James, late 1940s', 'https://upload.wikimedia.org/wikipedia/commons/4/42/USS_PT-105.jpg', 'audio/PTboatRichmondLate1940s.mp3',);}});
     </script>
 
   </body>

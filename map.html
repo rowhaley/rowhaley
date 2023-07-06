@@ -402,6 +402,13 @@
           id: 'locator35',
           x: 0.886,
           y: 0.433,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
+          {
+          id: 'locator36',
+          x: 0.8954,
+          y: 0.51,
           placement: 'LEFT',
             checkResize: false,
           },
@@ -583,6 +590,11 @@
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator35', clickHandler: function(event) {
           showDivAudio('Bob takes PT boat up the James, late 1940s', 'https://upload.wikimedia.org/wikipedia/commons/4/42/USS_PT-105.jpg', 'audio/PTboatRichmondLate1940s.mp3',);}});
+    </script>
+    <img id="locator36" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator36', clickHandler: function(event) {
+          showDivTxt('txt/Pottery.html');}});
     </script>
 
   </body>

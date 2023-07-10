@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg11300"
+   inkscape:export-ydpi="90.000000"
+   inkscape:export-filename="/home/jimmac/Desktop/wi-fi.png"
+   viewBox="0 0 39.775 35.245"
+   sodipodi:version="0.32"
+   inkscape:export-xdpi="90.000000"
+   version="1.0"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="tango-down-arrow-red.svg">
+  <defs
+     id="defs3">
+    <radialGradient
+       id="radialGradient8668"
+       gradientUnits="userSpaceOnUse"
+       cy="36.421"
+       cx="24.837"
+       gradientTransform="matrix(1,0,0,0.53672,0,16.873)"
+       r="15.645"
+       inkscape:collect="always">
+      <stop
+         id="stop8664"
+         style="stop-color:#000000"
+         offset="0" />
+      <stop
+         id="stop8666"
+         style="stop-color:#000000;stop-opacity:0"
+         offset="1" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient4339"
+       gradientUnits="userSpaceOnUse"
+       cy="2.8969"
+       cx="19.701"
+       gradientTransform="matrix(2.0467,0,0,1.5576,13.409,-29.653)"
+       r="17.171"
+       inkscape:collect="always">
+      <stop
+         id="stop8652"
+         style="stop-color:#ffffff"
+         offset="0" />
+      <stop
+         id="stop8654"
+         style="stop-color:#ffffff;stop-opacity:0"
+         offset="1" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient4342"
+       gradientUnits="userSpaceOnUse"
+       cy="32.798"
+       cx="22.292"
+       gradientTransform="matrix(0.84302,0,0,1.0202,37.427,-31.723)"
+       r="16.956"
+       inkscape:collect="always">
+      <stop
+         id="stop2593"
+         style="stop-color:#ef2929"
+         offset="0" />
+      <stop
+         id="stop2595"
+         style="stop-color:#cc0000"
+         offset="1" />
+    </radialGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     pagecolor="#ffffff"
+     inkscape:showpageshadow="false"
+     inkscape:grid-bbox="true"
+     inkscape:zoom="2.536359"
+     inkscape:pageshadow="2"
+     stroke="#4e9a06"
+     showgrid="false"
+     borderopacity="0.25490196"
+     inkscape:current-layer="layer1"
+     inkscape:cx="-42.771193"
+     inkscape:cy="40.46366"
+     inkscape:window-width="1440"
+     inkscape:pageopacity="0.0"
+     inkscape:window-height="839"
+     inkscape:document-units="px"
+     fill="#4e9a06"
+     inkscape:window-maximized="1" />
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-36.493 26.48)">
+    <g
+       id="g4423"
+       transform="rotate(90,56.380954,-8.606986)">
+      <ellipse
+         id="path2564"
+         style="opacity:0.29947001;fill:url(#radialGradient8668);fill-rule:evenodd"
+         transform="matrix(1.2712,0,0,1.2712,24.808,-48.207)"
+         cx="24.837126"
+         cy="36.421127"
+         rx="15.644737"
+         ry="8.3968935" />
+      <path
+         id="path2566"
+         sodipodi:nodetypes="cccccccc"
+         style="fill:url(#radialGradient4342);fill-rule:evenodd;stroke:#a40000;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+         d="m 41.482,-17.588 v 16.994 l 12.983,3.6e-4 v 8.545 l 19.96,-16.906 -20.078,-17.025 v 8.397 l -12.865,-0.005 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path2568"
+         sodipodi:nodetypes="cccccc"
+         style="opacity:0.50801996;fill:url(#radialGradient4339);fill-rule:evenodd"
+         d="m 54.89,-24.857 v 7.807 H 42.073 v 9.0403 c 17.75,2 16.633,-7.4553 31.383,-0.9553 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path2570"
+         sodipodi:nodetypes="cccccccc"
+         style="opacity:0.48128004;fill:none;stroke:#ffffff;stroke-miterlimit:10"
+         d="m 42.465,-16.544 v 14.985 l 12.985,-10e-5 v 7.3952 l 17.479,-14.796 -17.494,-14.78 v 7.201 l -12.97,-0.005 z"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+  <metadata
+     id="metadata85">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+        <dc:date>2010-03-09T13:40:44</dc:date>
+        <dc:description>This is modified Tango icon go-next (colors changed to red).</dc:description>
+        <dc:source>https://openclipart.org/detail/30493/tango-red-go-next-by-warszawianka</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>warszawianka</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>arrow</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>red</rdf:li>
+            <rdf:li>right</rdf:li>
+            <rdf:li>sign</rdf:li>
+            <rdf:li>symbol</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

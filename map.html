@@ -412,6 +412,20 @@
           placement: 'LEFT',
             checkResize: false,
           },
+          {
+          id: 'locator37',
+          x: 0.97,
+          y: 0.82,
+          placement: 'BOTTOM',
+            checkResize: false,
+          },
+          {
+          id: 'locator38',
+          x: 0.0,
+          y: 0.8,
+          placement: 'LEFT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -595,6 +609,16 @@
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator36', clickHandler: function(event) {
           showDivTxt('txt/Pottery.html');}});
+    </script>
+    <img id="locator37" src="images/tango-down-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator37', clickHandler: function(event) {
+          showDiv('Morehead City, NC 1965', 'images/1965HolyMackerel.jpg');}});
+    </script>
+    <img id="locator38" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator38', clickHandler: function(event) {
+	  showDivVideo('Telico River April 1987', 'https://www.youtube.com/embed/luD_ERo5JnQ?start=1158;');}});
     </script>
 
   </body>

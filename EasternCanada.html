@@ -188,6 +188,13 @@
           placement: 'LEFT',
             checkResize: false,
           },
+          {
+          id: 'locator5',
+          x: 0.285,
+          y: 0.99,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -211,6 +218,11 @@
     <script>
       new OpenSeadragon.MouseTracker({ element: 'locator4', clickHandler: function(event) {
 	  showDiv('1980 Naskaupi Take Out', 'images/1980NaskaupiTakeOutNorthWestRiver.jpg');}});
+    </script>
+    <img id="locator5" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator5', clickHandler: function(event) {
+	  showDiv('1981 Moise River', 'images/1981MoisieRiver.jpg');}});
     </script>
 
   </body>

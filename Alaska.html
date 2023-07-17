@@ -1,0 +1,194 @@
+<html>
+  <title>Bob Whaley's Alaska Canoe Trips</title>
+  <link rel="icon" type="image/svg" href="images/BSicon_uCANOEmod.svg">
+  <link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
+  <head>
+    <style type="text/css">
+      #bobwhaley {
+          width: 100%;
+          height: 100%;
+      }
+    </style>
+    
+    <script>
+      function showDiv(text, image) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDiv(div, text, image);
+              }
+          }, false);
+
+          drawDiv(div, text, image);
+
+          document.body.appendChild(div);
+
+      }
+
+
+      function drawDiv(div, text, image) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "transparent";
+          div.style.opacity = "1.00";
+          div.style.color = "black";
+          div.innerHTML = "<center><img src= '" + image + "' height=90%><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+
+      }
+
+      function showDivTxt(text) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.display = "none";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.display == "block") {
+		  drawDivTxt(div, text);
+              }
+          }, false);
+
+          drawDivTxt(div, text);
+
+          document.body.appendChild(div);
+
+      }
+      function drawDivTxt(div, text) {
+	  div.innerHTML =
+	      "<div style='background-color: rgba(150, 150, 150, 0.5); overflow: hidden; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; z-index: 1000; display:block;'>" + 
+  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
+              "<iframe src='" + text + "'width=99%; height=90%'></iframe></div> </div>";
+      }
+
+      function showDivAudio(text, image, audio) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDivAudio(div, text, image, audio);
+              }
+          }, false);
+
+          drawDivAudio(div, text, image, audio);
+
+          document.body.appendChild(div);
+
+      }
+
+      function drawDivAudio(div, text, image, audio) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "transparent";
+          div.style.opacity = "1.00";
+          div.style.color = "black";
+          div.innerHTML = "<center><img src= '" + image + "' height=80%><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></center>";
+      }
+
+      function showDivVideo(text, video) {
+
+          var div = document.createElement('div');
+
+          div.addEventListener('click', function(event) {
+              div.style.visibility = "hidden";
+          }, false);
+
+          window.addEventListener('resize', function(event) {
+              if (div.style.visibility == "visible") {
+		  drawDivVideo(div, text, video);
+              }
+          }, false);
+
+          drawDivVideo(div, text, video);
+
+          document.body.appendChild(div);
+
+      }
+
+      function drawDivVideo(div, text, video) {
+
+          div.style.left = "0";
+          div.style.top = "0";
+          div.style.width = "100%";
+          div.style.height = "100%";
+          div.style.position = "fixed";
+          div.style.visibility = "visible";
+          div.style.background = "transparent";
+          div.style.opacity = "1.00";
+          div.style.color = "black";
+          div.innerHTML = "<center><div><iframe width='90%' height='90%' src= '" + video + "' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+
+      }
+
+      function openInNewTab(url) {
+	  window.open(url, '_blank').focus();
+      }
+
+      </script>
+
+  </head>
+
+  <body style="background:black">
+    <div id="bobwhaley"></div>
+
+    <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
+
+    <script>
+      var viewer = OpenSeadragon({
+        id:            'bobwhaley',
+        prefixUrl:     '//openseadragon.github.io/openseadragon/images/',
+        tileSources:   'Alaska.dz.dzi',
+        overlays: [{
+          id: 'locator1',
+          x: 0.162,
+          y: 0.2557,
+          placement: 'RIGHT',
+          checkResize: false,
+          },
+          {
+          id: 'locator2',
+          x: 0.922,
+          y: 0.2945,
+          placement: 'RIGHT',
+          checkResize: false
+          },
+		  ],
+      });
+
+    </script>
+    <img id="locator1" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({element: 'locator1', clickHandler: function(event) {
+	  showDiv('St Marys Take Out (Native Alaskan, Tom Cole, Don Bowman, Bob Whaley', 'images/YukonStMarysTakeOut.jpg');}});
+    </script>
+    <img id="locator2" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <script>
+      new OpenSeadragon.MouseTracker({ element: 'locator2', clickHandler: function(event) {
+	  showDiv('Yukon (Tom Cole, Peter Winsfield, Don Bowman, Russell Goins, Bob)', 'images/YukonPutIn.jpg');}});
+    </script>
+
+  </body>
+
+</html>

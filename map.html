@@ -1,49 +1,106 @@
+<!DOCTYPE html>
 <html>
   <title>Bob Whaley's Wall Map</title>
   <link rel="icon" type="image/svg" href="images/BSicon_uCANOEmod.svg">
   <link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
+  <style type="text/css">
+    #bobwhaley, html, body {
+        height: 100%;
+	width: 100%;
+	margin: 0;
+	padding:0;
+    }
+  </style>
   <head>
     <style type="text/css">
       #bobwhaley {
-          width: 100%;
-          height: 100%;
       }
+      .container-video {
+	  overflow: hidden;
+	  position: fixed;
+	  left: 0px;
+	  top: 0px;
+	  bottom: 0px;
+	  right: 0px;
+	  z-index:1000;
+	  display:block;
+	  width: 80%; 
+	  margin:0 auto;
+      }
+
+      .responsive-video{
+	  z-index: 1001;
+	  overflow:hidden;
+	  padding-bottom:56.25%;
+	  position:relative;
+	  height:0;
+      }
+
+      .responsive-video iframe{
+	  z-index: 1002
+	  left:0;
+	  top:0;
+	  height:100%;
+	  width:100%;
+	  position:absolute;
+      }
+      
     </style>
-    
+
     <script>
-      function showDiv(text, image) {
+
+      function showDiv(text, image, iW, iH) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
-          }, false);
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
+         }, false);
 
           window.addEventListener('resize', function(event) {
               if (div.style.visibility == "visible") {
-		  drawDiv(div, text, image);
+		  drawDiv(div, text, image, iW, IH);
               }
           }, false);
 
-          drawDiv(div, text, image);
+          drawDiv(div, text, image, iW, iH);
 
           document.body.appendChild(div);
 
       }
 
 
-      function drawDiv(div, text, image) {
+      function drawDiv(div, text, image, iW, iH) {
 
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
+	  var iAspectRatio;
+	  var wAspectRatio;
+	  var width;
+
+	  iAspectRatio = iW / iH;
+	  wAspectRatio = window.innerWidth / (window.innerHeight - 50);
+
+	  if (iAspectRatio > wAspectRatio) {
+	      width = 0.98 * window.innerWidth;
+	  } else {
+	      width = 0.98 * (window.innerHeight - 50) * iAspectRatio;
+	  }
+
+          div.style.left = "1%";
+          div.style.top = "1%";
+          div.style.width = width + "px";
           div.style.height = "100%";
           div.style.position = "fixed";
           div.style.visibility = "visible";
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=90%><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+	  
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
+          console.log("<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>");
 
       }
 
@@ -51,8 +108,12 @@
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.display = "none";
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.display = "none";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
@@ -66,53 +127,78 @@
           document.body.appendChild(div);
 
       }
+      
       function drawDivTxt(div, text) {
 	  div.innerHTML =
 	      "<div style='background-color: rgba(150, 150, 150, 0.5); overflow: hidden; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; z-index: 1000; display:block;'>" + 
-  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
-              "<iframe src='" + text + "'width=99%; height=90%'></iframe></div> </div>";
+  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; height:90%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
+              "<iframe src='" + text + "'; width=99%; height=90%'></iframe></div> </div>";
       }
 
-      function showDivAudio(text, image, audio) {
+      function showDivAudio(text, image, audio, iW, iH) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
+	  var start = new Date().getTime();
+	  
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
               if (div.style.visibility == "visible") {
-		  drawDivAudio(div, text, image, audio);
+		  drawDivAudio(div, text, image, audio, iW, iH);
               }
           }, false);
 
-          drawDivAudio(div, text, image, audio);
+          drawDivAudio(div, text, image, audio, iW, iH);
 
           document.body.appendChild(div);
 
       }
 
-      function drawDivAudio(div, text, image, audio) {
+      function drawDivAudio(div, text, image, audio, iW, iH) {
 
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
+	  var iAspectRatio;
+	  var wAspectRatio;
+	  var width;
+
+          iAspectRatio = iW / iH;
+	  console.log(iAspectRatio);
+
+	  wAspectRatio = window.innerWidth / (window.innerHeight - 90);
+	  console.log(wAspectRatio);
+
+	  if (iAspectRatio > wAspectRatio) {
+	      width = 0.98 * window.innerWidth;
+	  } else {
+	      width = 0.98 * (window.innerHeight - 90) * iAspectRatio;
+	  }
+
+	  div.style.left = "1%";
+          div.style.top = "1%";
+          div.style.width = width + "px";
           div.style.height = "100%";
           div.style.position = "fixed";
           div.style.visibility = "visible";
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=80%><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></center>";
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></div></center>";
       }
 
       function showDivVideo(text, video) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
@@ -127,32 +213,65 @@
 
       }
 
+
       function drawDivVideo(div, text, video) {
-
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
-          div.style.height = "100%";
-          div.style.position = "fixed";
-          div.style.visibility = "visible";
-          div.style.background = "transparent";
-          div.style.opacity = "1.00";
-          div.style.color = "black";
-          div.innerHTML = "<center><div><iframe width='90%' height='90%' src= '" + video + "' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
-
-      }
-
-      function openInNewTab(url) {
-	  window.open(url, '_blank').focus();
+	  div.style.width = window.innerWidth + 'px';
+	  div.innerHTML=
+	      "<div class='container-video'; width='80%'; margin='0'; 'auto';>" +
+	      "<div class='responsive-video';  overflow='hidden'; padding-bottom='56.25%'; position='relative'; height='0';>" +
+	      "<iframe  src='" + video + "'; left='0'; top='50'; height='100%'; width='100%'; possition='absolute';" +
+	      "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'; 'allowfullscreen'>" +
+	      "</iframe></div>" +
+	      "<hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1><center>" + text + "</center></h1></div>"
       }
 
       </script>
 
   </head>
-
+  
   <body style="background:black">
     <div id="bobwhaley"></div>
 
+    <img id="locator1" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="32">
+    <img id="locator2" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator3" src="images/tango-right-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator4" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator5" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator6" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator7" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator8" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator9" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator10" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator11" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator12" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator13" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator14" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator15" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator16" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator17" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator18" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator19" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator20" src="images/tango-down-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator21" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator22" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator23" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator24" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator25" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator26" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator27" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator28" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator29" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator30" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator31" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator32" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator33" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator34" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator35" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator36" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator37" src="images/tango-down-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator38" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator39" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -178,7 +297,7 @@
           id: 'locator3',
           x: 0.6842,
           y: 0.2878,
-          placement: 'LEFT',
+          placement: 'RIGHT',
             checkResize: false,
 	  },
           {
@@ -297,7 +416,7 @@
           id: 'locator20',
           x: 0.7107,
           y: 0.2934,
-          placement: 'RIGHT',
+          placement: 'BOTTOM',
             checkResize: false,
           },
           {
@@ -436,203 +555,85 @@
 		  ],
       });
 
-    </script>
-    <img id="locator1" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({element: 'locator1', clickHandler: function(event) {
-	  showDiv('Original map on the wall in Charlottesville', 'images/DSC02171.JPG');}});
-    </script>
-    <img id="locator2" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('Original map on the wall in Charlottesville', 'images/DSC02171.JPG', 5472, 3080);}});
       new OpenSeadragon.MouseTracker({ element: 'locator2', clickHandler: function(event) {
-          showDiv('Goshen Pass Apr 26th, 2009', 'images/IMG_0634.JPG');}});
-    </script>
-    <img id="locator3" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Goshen Pass Apr 26th, 2009', 'images/IMG_0634.JPG', 1200, 1600);}});
       new OpenSeadragon.MouseTracker({ element: 'locator3', clickHandler: function(event) {
-	  showDiv('The Last Canoe Trip, Oct 10th, 2010', 'images/IMG_1826.JPG');}});
-    </script>
-    <img id="locator4" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('The Last Canoe Trip, Oct 10th, 2010', 'images/IMG_1826.JPG', 3648,2736);}});
       new OpenSeadragon.MouseTracker({ element: 'locator4', clickHandler: function(event) {
-          showDiv('James River, Mothers Day 2002', 'images/100-0178.JPG');}});
-    </script>
-    <img id="locator5" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('James River, Mothers Day 2002', 'images/100-0178.JPG',1760,1168);}});
       new OpenSeadragon.MouseTracker({ element: 'locator5', clickHandler: function(event) {
-          showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'images/DSC02176.JPG');}});
-    </script>
-    <img id="locator6" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Bob and Sally at Branchlands Pond, Sept 2nd, 2021', 'images/DSC02176.JPG',5472,3080);}});
       new OpenSeadragon.MouseTracker({ element: 'locator6', clickHandler: function(event) {
-          showDivAudio('Bob paddles to the WWI Ghost Fleet, ~1938 (photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg', 'audio/CanvasKayak.mp3',);}});
-    </script>
-    <img id="locator7" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDivAudio('Bob paddles to the WWI Ghost Fleet, ~1938 (photo prob from the 50s)', '//arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/UOS6MU7W4VGMDIBX4JAWVHECUU.jpg', 'audio/CanvasKayak.mp3',1433,809);}});
       new OpenSeadragon.MouseTracker({ element: 'locator7', clickHandler: function(event) {
-          showDivAudio('Bob swims the Rappahannock to win a bet, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg', 'audio/SwimAcrossRappahannock.mp3',);}});
-    </script>
-    <img id="locator8" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDivAudio('Bob swims the Rappahannock to win a bet, ~1951', 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Rappahannock_River_2008.jpg', 'audio/SwimAcrossRappahannock.mp3',800,600);}});
       new OpenSeadragon.MouseTracker({ element: 'locator8', clickHandler: function(event) {
-          showDiv('Natural Bridge with Ollie Fordham, June 1982', 'images/NaturalBridge.JPG');}});
-    </script>
-    <img id="locator9" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Natural Bridge with Ollie Fordham, June 1982', 'images/NaturalBridge.JPG',1780,2651);}});
       new OpenSeadragon.MouseTracker({ element: 'locator9', clickHandler: function(event) {
-	  showDiv('Cedar Creek with Ollie Fordham, June 1982', 'images/CedarCreek.JPG');}});
-    </script>
-    <img id="locator10" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('Cedar Creek with Ollie Fordham, June 1982', 'images/CedarCreek.JPG',1882,1768);}});
       new OpenSeadragon.MouseTracker({ element: 'locator10', clickHandler: function(event) {
           showDivTxt('txt/Jerrys.html');}});
-    </script>
-    <img id="locator11" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator11', clickHandler: function(event) {
-         showDiv('Solo from Emporia, VA to Balgra, NC, circa 1980', 'images/BobandJohn.JPG');}});
-    </script>
-    <img id="locator12" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Solo from Emporia, VA to Balgra, NC, circa 1980', 'images/BobandJohn.JPG',1668,1437);}});
       new OpenSeadragon.MouseTracker({ element: 'locator12', clickHandler: function(event) {
-          showDiv('Rafting, New River Gorge, July 2006', 'images/NewRiverJuly2006.jpg');}});
-    </script>
-    <img id="locator13" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Rafting, New River Gorge, July 2006', 'images/NewRiverJuly2006.jpg',2544,1696);}});
       new OpenSeadragon.MouseTracker({ element: 'locator13', clickHandler: function(event) {
-          showDivAudio('<a href=&quot//www.bobgramann.com/&quot>www.bobgramann.com</a>', 'images/MostlyTrueSongs.jpg', 'audio/TheBalladOfBobWhaley.mp3');}});
-    </script>
-    <img id="locator14" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDivAudio('<a href=&quot//www.bobgramann.com/&quot>www.bobgramann.com</a>', 'images/MostlyTrueSongs.jpg', 'audio/TheBalladOfBobWhaley.mp3', 2832, 1422);}});
       new OpenSeadragon.MouseTracker({ element: 'locator14', clickHandler: function(event) {
-	  showDiv('Fossilized Whale Bone, Meherrin River circa 1980', 'images/WhaleBone.jpg');}});
-    </script>
-    <img id="locator15" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+	  showDiv('Fossilized Whale Bone, Meherrin River circa 1980', 'images/WhaleBone.jpg',4856,2227);}});
       new OpenSeadragon.MouseTracker({ element: 'locator15', clickHandler: function(event) {
-          showDiv('Tye River, Nelson County Downriver Race 2009', 'images/NelsonRace2_2009.JPG');}});
-    </script>
-    <img id="locator16" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Tye River, Nelson County Downriver Race 2009', 'images/NelsonRace2_2009.JPG',3648,2736);}});
       new OpenSeadragon.MouseTracker({ element: 'locator16', clickHandler: function(event) {
-	  showDiv('Great Rappahannock Whitewater Canoe Race 2008', 'images/RappahannockRace2008.JPG');}});
-    </script>
-    <img id="locator17" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('Great Rappahannock Whitewater Canoe Race 2008', 'images/RappahannockRace2008.JPG',3648,2736);}});
       new OpenSeadragon.MouseTracker({ element: 'locator17', clickHandler: function(event) {
           showDivVideo('Broken Paddle New River Gorge 1970s', 'https://www.youtube.com/embed/843otVxCdUU');}});
-    </script>
-    <img id="locator18" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator18', clickHandler: function(event) {
-          showDivAudio('Victoria Reservoir painting by Lena Averill', 'images/VictoriaReservoir.JPG', 'audio/TeachingBoyToSwim.mp3',);}});
-    </script>
-    <img id="locator19" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDivAudio('Victoria Reservoir painting by Lena Averill', 'images/VictoriaReservoir.JPG', 'audio/TeachingBoyToSwim.mp3',3333,2706);}});
       new OpenSeadragon.MouseTracker({ element: 'locator19', clickHandler: function(event) {
           showDivVideo('Balcony Falls, James River early 1970s', 'https://www.youtube.com/embed/GDYjsdNCxtM');}});
-    </script>
-    <img id="locator20" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator20', clickHandler: function(event) {
           showDivVideo('First Paddle of Folbot Kit 1967', 'https://www.youtube.com/embed/b5RdDybrjTs?start=0&end=35;');}});
-    </script>
-    <img id="locator21" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator21', clickHandler: function(event) {
-          showDiv('Upper Tye River 2009', 'images/TyeRiver2009.JPG');}});
-    </script>
-    <img id="locator22" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Upper Tye River 2009', 'images/TyeRiver2009.JPG',3876,2592);}});
       new OpenSeadragon.MouseTracker({ element: 'locator22', clickHandler: function(event) {
-	  showDiv('Gauley River, Sweets Falls, 1987 (simulated multi-exposure)', 'images/GauleySweets1987.jpg');}});
-    </script>
-    <img id="locator23" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+	  showDiv('Gauley River, Sweets Falls, 1987 (simulated multi-exposure)', 'images/GauleySweets1987.jpg',3113,2633);}});
       new OpenSeadragon.MouseTracker({ element: 'locator23', clickHandler: function(event) {
 	  showDivVideo('Goshen Pass mid 1970s', 'https://www.youtube.com/embed/rDg-bD4ei48?start=370&end=394;');}});
-    </script>
-    <img id="locator24" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator24', clickHandler: function(event) {
           showDivVideo('James River Pipeline Richmond mid 1970s', 'https://www.youtube.com/embed/XEs-dgW73IQ');}});
-    </script>
-    <img id="locator25" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator25', clickHandler: function(event) {
           showDivVideo('Nottaway Falls mid 1970s with Beth, Tom Cole and son', 'https://www.youtube.com/embed/SPLTKTc10Oo');}});
-    </script>
-    <img id="locator26" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator26', clickHandler: function(event) {
-          showDiv('Danville Bicentenial, Dan River, May 14-23 1993', 'images/DanvilleBicentennial1993.jpg');}});
-    </script>
-    <img id="locator27" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Danville Bicentenial, Dan River, May 14-23 1993', 'images/DanvilleBicentennial1993.jpg',2903,4166);}});
       new OpenSeadragon.MouseTracker({ element: 'locator27', clickHandler: function(event) {
-          showDiv('Cacapon River Camp Sketch, April 1980 by Russell Goins Sister', 'images/CampDrawing1980.jpg');}});
-    </script>
-    <img id="locator28" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Cacapon River Camp Sketch, April 1980 by Russell Goins Sister', 'images/CampDrawing1980.jpg',3660,2796);}});
       new OpenSeadragon.MouseTracker({ element: 'locator28', clickHandler: function(event) {
-          showDiv('James River, Richmond upper section 8/1/2009, Jenny Wiley', 'images/20090801UpperRichmond.jpg');}});
-    </script>
-    <img id="locator29" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('James River, Richmond upper section 8/1/2009, Jenny Wiley', 'images/20090801UpperRichmond.jpg',500,333);}});
       new OpenSeadragon.MouseTracker({ element: 'locator29', clickHandler: function(event) {
-          showDiv('Cheat Canyon takeout, Jenkinsville bridge', 'images/CheatCanyonTakeout.JPG');}});
-    </script>
-    <img id="locator30" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Cheat Canyon takeout, Jenkinsville bridge', 'images/CheatCanyonTakeout.JPG',1463,2269);}});
       new OpenSeadragon.MouseTracker({ element: 'locator30', clickHandler: function(event) {
-          showDiv('Youghiogheny River (actual location probably downstream in PA)', 'images/youghiogheny.jpg');}});
-    </script>
-    <img id="locator31" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Youghiogheny River (actual location probably downstream in PA)', 'images/youghiogheny.jpg',3924,2645);}});
       new OpenSeadragon.MouseTracker({ element: 'locator31', clickHandler: function(event) {
-          showDiv('Rivanna River 1975', 'images/1975Rivanna.jpg');}});
-    </script>
-    <img id="locator32" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Rivanna River 1975', 'images/1975Rivanna.jpg',2281,2703);}});
       new OpenSeadragon.MouseTracker({ element: 'locator32', clickHandler: function(event) {
-          showDiv('ACA Whitewater Open Canoe Downriver National Championships, 2008', 'images/2008_Nationals.JPG');}});
-    </script>
-    <img id="locator33" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('ACA Whitewater Open Canoe Downriver National Championships, 2008', 'images/2008_Nationals.JPG',3008,2000);}});
       new OpenSeadragon.MouseTracker({ element: 'locator33', clickHandler: function(event) {
-          showDiv('Miss Virginia Tech 1948, Snow Woman', 'images/MissVaTech1948SnowWoman.jpg');}});
-    </script>
-    <img id="locator34" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+          showDiv('Miss Virginia Tech 1948, Snow Woman', 'images/MissVaTech1948SnowWoman.jpg',1000,1501);}});
       new OpenSeadragon.MouseTracker({ element: 'locator34', clickHandler: function(event) {
           showDivVideo('Pick up Tom Michie from the Capitol for NC Canoe trip, 1970s', 'https://www.youtube.com/embed/oeZZn60b0_8');}});
-    </script>
-    <img id="locator35" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator35', clickHandler: function(event) {
-          showDivAudio('Bob takes PT boat up the James, late 1940s', 'https://upload.wikimedia.org/wikipedia/commons/4/42/USS_PT-105.jpg', 'audio/PTboatRichmondLate1940s.mp3',);}});
-    </script>
-    <img id="locator36" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDivAudio('Bob takes PT boat up the James, late 1940s', 'https://upload.wikimedia.org/wikipedia/commons/4/42/USS_PT-105.jpg', 'audio/PTboatRichmondLate1940s.mp3',740,584);}});
       new OpenSeadragon.MouseTracker({ element: 'locator36', clickHandler: function(event) {
           showDivTxt('txt/Pottery.html');}});
-    </script>
-    <img id="locator37" src="images/tango-down-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator37', clickHandler: function(event) {
-          showDiv('Morehead City, NC 1965', 'images/1965HolyMackerel.jpg');}});
-    </script>
-    <img id="locator38" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+          showDiv('Morehead City, NC 1965', 'images/1965HolyMackerel.jpg',11171,8932);}});
       new OpenSeadragon.MouseTracker({ element: 'locator38', clickHandler: function(event) {
 	  showDivVideo('Telico River April 1987', 'https://www.youtube.com/embed/luD_ERo5JnQ?start=1158;');}});
-    </script>
-    <img id="locator39" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({ element: 'locator39', clickHandler: function(event) {
-	  showDiv('Nelson Area Paddlers 2008 Outstanding Canoeist awarded by Conny Roussos', 'images/2008BobWhaleyNelsonCounty.jpg');}});
+	  showDiv('Nelson Area Paddlers 2008 Outstanding Canoeist awarded by Conny Roussos', 'images/2008BobWhaleyNelsonCounty.jpg',800,502);}});
     </script>
-
   </body>
 
 </html>

@@ -63,7 +63,7 @@
 
           window.addEventListener('resize', function(event) {
               if (div.style.visibility == "visible") {
-		  drawDiv(div, text, image, iW, IH);
+		  drawDiv(div, text, image, iW, iH);
               }
           }, false);
 
@@ -99,9 +99,7 @@
           div.style.opacity = "1.00";
           div.style.color = "black";
 	  
-          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
-          console.log("<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>");
-
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h2>" + text + "</h2></div></center>";
       }
 
       function showDivTxt(text) {
@@ -166,10 +164,8 @@
 	  var width;
 
           iAspectRatio = iW / iH;
-	  console.log(iAspectRatio);
 
 	  wAspectRatio = window.innerWidth / (window.innerHeight - 90);
-	  console.log(wAspectRatio);
 
 	  if (iAspectRatio > wAspectRatio) {
 	      width = 0.98 * window.innerWidth;
@@ -186,7 +182,7 @@
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></div></center>";
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div><h2><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h2></div></center>";
       }
 
       function showDivVideo(text, video) {
@@ -222,7 +218,7 @@
 	      "<iframe  src='" + video + "'; left='0'; top='50'; height='100%'; width='100%'; possition='absolute';" +
 	      "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'; 'allowfullscreen'>" +
 	      "</iframe></div>" +
-	      "<hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1><center>" + text + "</center></h1></div>"
+	      "<hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h2><center>" + text + "</center></h2></div>"
       }
 
       </script>

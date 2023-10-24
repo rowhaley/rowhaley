@@ -1,58 +1,117 @@
+<!DOCTYPE html>
 <html>
   <title>Bob Whaley's Eastern Canada Canoe Trips</title>
   <link rel="icon" type="image/svg" href="images/BSicon_uCANOEmod.svg">
   <link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
+  <style type="text/css">
+    #bobwhaley, html, body {
+        height: 100%;
+	width: 100%;
+	margin: 0;
+	padding:0;
+    }
+  </style>
   <head>
     <style type="text/css">
       #bobwhaley {
-          width: 100%;
-          height: 100%;
       }
+      .container-video {
+	  overflow: hidden;
+	  position: fixed;
+	  left: 0px;
+	  top: 0px;
+	  bottom: 0px;
+	  right: 0px;
+	  z-index:1000;
+	  display:block;
+	  width: 80%; 
+	  margin:0 auto;
+      }
+
+      .responsive-video{
+	  z-index: 1001;
+	  overflow:hidden;
+	  padding-bottom:56.25%;
+	  position:relative;
+	  height:0;
+      }
+
+      .responsive-video iframe{
+	  z-index: 1002
+	  left:0;
+	  top:0;
+	  height:100%;
+	  width:100%;
+	  position:absolute;
+      }
+      
     </style>
-    
+
     <script>
-      function showDiv(text, image) {
+
+      function showDiv(text, image, iW, iH) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
-          }, false);
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
+         }, false);
 
           window.addEventListener('resize', function(event) {
               if (div.style.visibility == "visible") {
-		  drawDiv(div, text, image);
+		  drawDiv(div, text, image, iW, iH);
               }
           }, false);
 
-          drawDiv(div, text, image);
+          drawDiv(div, text, image, iW, iH);
 
           document.body.appendChild(div);
 
       }
 
 
-      function drawDiv(div, text, image) {
+      function drawDiv(div, text, image, iW, iH) {
 
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
+	  var iAspectRatio;
+	  var wAspectRatio;
+	  var width;
+
+	  iAspectRatio = iW / iH;
+	  wAspectRatio = window.innerWidth / (window.innerHeight - 50);
+
+	  if (iAspectRatio > wAspectRatio) {
+	      width = 0.98 * window.innerWidth;
+	  } else {
+	      width = 0.98 * (window.innerHeight - 50) * iAspectRatio;
+	  }
+
+          div.style.left = "1%";
+          div.style.top = "1%";
+          div.style.width = width + "px";
           div.style.height = "100%";
           div.style.position = "fixed";
           div.style.visibility = "visible";
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=90%><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
-
+	  
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h2>" + text + "</h2></div></center>";
       }
 
       function showDivTxt(text) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.display = "none";
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.display = "none";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
@@ -66,53 +125,76 @@
           document.body.appendChild(div);
 
       }
+      
       function drawDivTxt(div, text) {
 	  div.innerHTML =
 	      "<div style='background-color: rgba(150, 150, 150, 0.5); overflow: hidden; position: fixed; left: 0px; top: 0px; bottom: 0px; right: 0px; z-index: 1000; display:block;'>" + 
-  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
-              "<iframe src='" + text + "'width=99%; height=90%'></iframe></div> </div>";
+  	      "<div style='background-color: rgb(255, 255, 255); width: 80%; height:90%; position: static; margin: 20px auto; padding: 10px 10px 10px; overflow: hidden; z-index: 1001; box-shadow: 0px 3px 8px rgba(34, 25, 25, 0.4);'>" +
+              "<iframe src='" + text + "'; width=99%; height=90%'></iframe></div> </div>";
       }
 
-      function showDivAudio(text, image, audio) {
+      function showDivAudio(text, image, audio, iW, iH) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
+	  var start = new Date().getTime();
+	  
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
               if (div.style.visibility == "visible") {
-		  drawDivAudio(div, text, image, audio);
+		  drawDivAudio(div, text, image, audio, iW, iH);
               }
           }, false);
 
-          drawDivAudio(div, text, image, audio);
+          drawDivAudio(div, text, image, audio, iW, iH);
 
           document.body.appendChild(div);
 
       }
 
-      function drawDivAudio(div, text, image, audio) {
+      function drawDivAudio(div, text, image, audio, iW, iH) {
 
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
+	  var iAspectRatio;
+	  var wAspectRatio;
+	  var width;
+
+          iAspectRatio = iW / iH;
+
+	  wAspectRatio = window.innerWidth / (window.innerHeight - 90);
+
+	  if (iAspectRatio > wAspectRatio) {
+	      width = 0.98 * window.innerWidth;
+	  } else {
+	      width = 0.98 * (window.innerHeight - 90) * iAspectRatio;
+	  }
+
+	  div.style.left = "1%";
+          div.style.top = "1%";
+          div.style.width = width + "px";
           div.style.height = "100%";
           div.style.position = "fixed";
           div.style.visibility = "visible";
           div.style.background = "transparent";
           div.style.opacity = "1.00";
           div.style.color = "black";
-          div.innerHTML = "<center><img src= '" + image + "' height=80%><h1><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h1></center>";
+          div.innerHTML = "<center><img src= '" + image + "'; width='" + width + "px';><div><h2><audio controls controlsList='nodownload'><source src= '" + audio + "' type= 'audio/mpeg'>Error</audio>&nbsp&nbsp" + text + "</h2></div></center>";
       }
 
       function showDivVideo(text, video) {
 
           var div = document.createElement('div');
 
-          div.addEventListener('click', function(event) {
-              div.style.visibility = "hidden";
+	  var start = new Date().getTime();
+
+          window.addEventListener('click', function(event) {
+	      if ((new Date().getTime() - start) > 500) {
+		  div.style.visibility = "hidden";
+	      }
           }, false);
 
           window.addEventListener('resize', function(event) {
@@ -127,32 +209,33 @@
 
       }
 
+
       function drawDivVideo(div, text, video) {
-
-          div.style.left = "0";
-          div.style.top = "0";
-          div.style.width = "100%";
-          div.style.height = "100%";
-          div.style.position = "fixed";
-          div.style.visibility = "visible";
-          div.style.background = "transparent";
-          div.style.opacity = "1.00";
-          div.style.color = "black";
-          div.innerHTML = "<center><div><iframe width='90%' height='90%' src= '" + video + "' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe> <hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h1>" + text + "</h1></div></center>";
-
-      }
-
-      function openInNewTab(url) {
-	  window.open(url, '_blank').focus();
+	  div.style.width = window.innerWidth + 'px';
+	  div.innerHTML=
+	      "<div class='container-video'; width='80%'; margin='0'; 'auto';>" +
+	      "<div class='responsive-video';  overflow='hidden'; padding-bottom='56.25%'; position='relative'; height='0';>" +
+	      "<iframe  src='" + video + "'; left='0'; top='50'; height='100%'; width='100%'; possition='absolute';" +
+	      "frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'; 'allowfullscreen'>" +
+	      "</iframe></div>" +
+	      "<hw style = 'text-shadow: 2px 2px 2px white, -2px -2px 2px white;'><h2><center>" + text + "</center></h2></div>"
       }
 
       </script>
 
   </head>
-
+  
   <body style="background:black">
     <div id="bobwhaley"></div>
 
+    <img id="locator1" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator2" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator3" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator4" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator5" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator6" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator7" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
     <script>
@@ -212,43 +295,21 @@
 		  ],
       });
 
-    </script>
-    <img id="locator1" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
       new OpenSeadragon.MouseTracker({element: 'locator1', clickHandler: function(event) {
-	  showDiv('1980 with Phil Leider Searching for Naskaupi Put In', 'images/1980NaskaupiPortageAtStart.jpg');}});
-    </script>
-    <img id="locator2" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+	  showDiv('1980 with Phil Leider Searching for Naskaupi Put In', 'images/1980NaskaupiPortageAtStart.jpg',1054,707);}});
       new OpenSeadragon.MouseTracker({ element: 'locator2', clickHandler: function(event) {
-	  showDiv('1980 Naskaupi Isabella Falls', 'images/1980NaskaupiIsabellaFalls.jpg');}});
-    </script>
-    <img id="locator3" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('1980 Naskaupi Isabella Falls', 'images/1980NaskaupiIsabellaFalls.jpg',475,707);}});
       new OpenSeadragon.MouseTracker({ element: 'locator3', clickHandler: function(event) {
-	  showDiv('1980 Naskaupi Gertrude Falls (actual map location unknown)', 'images/1980NaskaupiGertrudeFalls.jpg');}});
-    </script>
-    <img id="locator4" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
-    <script>
+	  showDiv('1980 Naskaupi Gertrude Falls (actual map location unknown)', 'images/1980NaskaupiGertrudeFalls.jpg',1043,707);}});
       new OpenSeadragon.MouseTracker({ element: 'locator4', clickHandler: function(event) {
-	  showDiv('1980 Naskaupi Take Out', 'images/1980NaskaupiTakeOutNorthWestRiver.jpg');}});
-    </script>
-    <img id="locator5" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('1980 Naskaupi Take Out', 'images/1980NaskaupiTakeOutNorthWestRiver.jpg',1048,707);}});
       new OpenSeadragon.MouseTracker({ element: 'locator5', clickHandler: function(event) {
-	  showDiv('1981 Moise River', 'images/1981MoisieRiver.jpg');}});
-    </script>
-    <img id="locator6" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('1981 Moise River', 'images/1981MoisieRiver.jpg',1058,508);}});
       new OpenSeadragon.MouseTracker({ element: 'locator6', clickHandler: function(event) {
-	  showDiv('1981 Moise River', 'images/1981MoisieRiver2.jpg');}});
-    </script>
-    <img id="locator7" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
-    <script>
+	  showDiv('1981 Moise River', 'images/1981MoisieRiver2.jpg',2436,1680);}});
       new OpenSeadragon.MouseTracker({ element: 'locator7', clickHandler: function(event) {
-	  showDiv('1981 Moise River (Bob, Chip Queitzsch, Phil Leider, Steve Wagner)', 'images/1981MoisieRiver3.jpg');}});
+	  showDiv('1981 Moise River (Bob, Chip Queitzsch, Phil Leider, Steve Wagner)', 'images/1981MoisieRiver3.jpg',2436,1680);}});
     </script>
-
   </body>
 
 </html>

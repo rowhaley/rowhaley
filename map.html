@@ -267,6 +267,7 @@
     <img id="locator37" src="images/tango-down-arrow-red.svg" alt="Left arrow" width="16">
     <img id="locator38" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <img id="locator39" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator40" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
@@ -548,6 +549,13 @@
           placement: 'RIGHT',
             checkResize: false,
           },
+          {
+          id: 'locator40',
+          x: 0.682,
+          y: 0.367,
+          placement: 'RIGHT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -629,6 +637,8 @@
 	  showDivVideo('Telico River April 1987', 'https://www.youtube.com/embed/luD_ERo5JnQ?start=1158;');}});
       new OpenSeadragon.MouseTracker({ element: 'locator39', clickHandler: function(event) {
 	  showDiv('Nelson Area Paddlers 2008 Outstanding Canoeist awarded by Conny Roussos', 'images/2008BobWhaleyNelsonCounty.jpg',800,502);}});
+      new OpenSeadragon.MouseTracker({ element: 'locator40', clickHandler: function(event) {
+	  showDiv('Citation Bass (location unknown)', 'images/1971CitationSmallmouth.jpg',754,935);}});
     </script>
   </body>
 

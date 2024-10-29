@@ -268,6 +268,7 @@
     <img id="locator38" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     <img id="locator39" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <img id="locator40" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
+    <img id="locator41" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
     
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
@@ -556,6 +557,13 @@
           placement: 'RIGHT',
             checkResize: false,
           },
+          {
+          id: 'locator41',
+          x: 0.0,
+          y: 0.75,
+          placement: 'LEFT',
+            checkResize: false,
+          },
 		  ],
       });
 
@@ -639,6 +647,8 @@
 	  showDiv('Nelson Area Paddlers 2008 Outstanding Canoeist awarded by Conny Roussos', 'images/2008BobWhaleyNelsonCounty.jpg',800,502);}});
       new OpenSeadragon.MouseTracker({ element: 'locator40', clickHandler: function(event) {
 	  showDiv('Citation Bass (location unknown)', 'images/1971CitationSmallmouth.jpg',754,935);}});
+      new OpenSeadragon.MouseTracker({ element: 'locator41', clickHandler: function(event) {
+	  showDiv('Honeymoon 1950, Fontana Lake (sunburn!)', 'images/195207HoneyMoon.jpg',555,283);}});
     </script>
   </body>
 

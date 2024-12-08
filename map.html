@@ -5,6 +5,7 @@
   <link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
   <style type="text/css">
     #bobwhaley, html, body {
+	background-color:gray;
         height: 100%;
 	width: 100%;
 	margin: 0;
@@ -269,6 +270,10 @@
     <img id="locator39" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <img id="locator40" src="images/tango-right-arrow-red.svg" alt="Right arrow" width="16">
     <img id="locator41" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator42" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator43" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator44" src="images/tango-left-arrow-red.svg" alt="Left arrow" width="16">
+    <img id="locator45" src="images/tango-down-arrow-red.svg" alt="Left arrow" width="16">
     
     <script src="//openseadragon.github.io/openseadragon/openseadragon.min.js"></script>
 
@@ -539,7 +544,7 @@
           {
           id: 'locator38',
           x: 0.0,
-          y: 0.8,
+          y: 0.72,
           placement: 'LEFT',
             checkResize: false,
           },
@@ -562,6 +567,34 @@
           x: 0.0,
           y: 0.75,
           placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator42',
+          x: 0.0,
+          y: 0.80,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator43',
+          x: 0.5518,
+          y: 0.3455,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+	  {
+          id: 'locator44',
+          x: 0.7158,
+          y: 0.1785,
+          placement: 'LEFT',
+            checkResize: false,
+          },
+          {
+          id: 'locator45',
+          x: 0.843,
+          y: 0.389,
+          placement: 'BOTTOM',
             checkResize: false,
           },
 		  ],
@@ -649,6 +682,14 @@
 	  showDiv('Citation Bass (location unknown)', 'images/1971CitationSmallmouth.jpg',754,935);}});
       new OpenSeadragon.MouseTracker({ element: 'locator41', clickHandler: function(event) {
 	  showDiv('Honeymoon 1950, Fontana Lake (sunburn!)', 'images/195207HoneyMoon.jpg',555,283);}});
+      new OpenSeadragon.MouseTracker({ element: 'locator42', clickHandler: function(event) {
+          showDivTxt('txt/RaymondObit.html');}});
+      new OpenSeadragon.MouseTracker({ element: 'locator43', clickHandler: function(event) {
+          showDivTxt('txt/LizObit.html');}});
+      new OpenSeadragon.MouseTracker({ element: 'locator44', clickHandler: function(event) {
+          showDivTxt('txt/MauriceObit.html');}});
+      new OpenSeadragon.MouseTracker({ element: 'locator45', clickHandler: function(event) {
+          showDiv('Bob and Sally (nine months pregnant) walk across James River, September 1954','images/Drought1954.jpg', 2076, 1560);}});
     </script>
   </body>
 

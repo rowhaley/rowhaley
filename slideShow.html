@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Bob Whaley's Media Player</title>
+<link rel="icon" type="image/svg" href="images/BSicon_uCANOEmod.svg">
+<link rel="icon" type="image/png" href="images/BSicon_uCANOEmod.png">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Responsive Media Carousel</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#1e1e1e;
+    color:white;
+}
+
+/* --------------------------------------------------
+   Main layout
+---------------------------------------------------*/
+
+#app{
+    width:100vw;
+
+    /* IMPORTANT:
+       works better on Android Chrome than 100vh
+    */
+    height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* --------------------------------------------------
+   Carousel area
+---------------------------------------------------*/
+
+#carousel{
+    flex:1;
+    min-height:0;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:10px;
+}
+
+/* --------------------------------------------------
+   Slide layout
+---------------------------------------------------*/
+
+.slide{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    overflow:hidden;
+}
+
+/* --------------------------------------------------
+   Media sizing
+---------------------------------------------------*/
+
+.media{
+    max-width:100%;
+
+    /*
+      Leave room for:
+      title
+      audio controls
+      nav buttons
+      margins
+      max-height:calc(100dvh - 190px);
+    */
+
+    max-height:calc(100dvh - 180px);
+    
+    object-fit:contain;
+
+    border-radius:10px;
+}
+
+/* --------------------------------------------------
+   Video
+---------------------------------------------------*/
+
+.video-wrapper{
+
+    width:100%;
+    max-width:1200px;
+
+    /*
+      leave room for controls/buttons
+    */
+    max-height:calc(100dvh - 140px);
+
+    aspect-ratio:16 / 9;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    border-radius:10px;
+}
+
+/* --------------------------------------------------
+   HTML content
+---------------------------------------------------*/
+
+.html-content{
+
+    width:100%;
+    height:100%;
+
+    overflow-y:auto;
+
+    background:white;
+    color:black;
+
+    border-radius:10px;
+
+    padding:20px;
+}
+
+/* --------------------------------------------------
+   Title
+---------------------------------------------------*/
+
+.title{
+    text-align:center;
+    font-size:1.2rem;
+    font-weight:bold;
+}
+
+/* --------------------------------------------------
+   Audio
+---------------------------------------------------*/
+
+audio{
+    width:min(700px, 100%);
+    flex-shrink:0;
+}
+
+/* --------------------------------------------------
+   Controls
+---------------------------------------------------*/
+
+#controls{
+
+    flex-shrink:0;
+
+    height:70px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+
+    padding-bottom:env(safe-area-inset-bottom);
+
+    background:#1e1e1e;
+}
+
+button{
+
+    padding:12px 24px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#0078ff;
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005fcc;
+}
+
+/* --------------------------------------------------
+   Mobile tweaks
+---------------------------------------------------*/
+
+@media (max-width:700px){
+
+    .title{
+        font-size:1rem;
+    }
+
+    button{
+        padding:10px 18px;
+        font-size:0.95rem;
+    }
+
+    #controls{
+        height:64px;
+    }
+
+    .media{
+        max-height:calc(100dvh - 175px);
+    }
+
+    .video-wrapper{
+        max-height:calc(100dvh - 130px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="app">
+
+    <div id="carousel"></div>
+
+    <div id="controls">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+</div>
+
+<script src="MapData.js"> </script>
+<script src="AlaskaData.js"> </script>
+<script src="CanadaData.js"> </script>
+
+<script>
+
+/* ==================================================
+   DATA
+================================================== */
+
+  const carouselData= [...mapData, ...canadaData, ...alaskaData];
+
+let currentIndex = 0;
+
+/* ==================================================
+   LOAD SLIDE
+================================================== */
+
+function loadSlide(index){
+
+    const carousel = document.getElementById("carousel");
+    const data = carouselData[index];
+
+    carousel.innerHTML = "";
+
+    const slide = document.createElement("div");
+    slide.className = "slide";
+
+    /* ----------------------------------------------
+       IMAGE + TITLE
+    ---------------------------------------------- */
+
+    if(data.image && !data.audio){
+
+        const img = document.createElement("img");
+
+        img.src = data.image;
+        img.className = "media";
+
+        if(data.iW && data.iH){
+            img.style.aspectRatio =
+                `${data.iW} / ${data.iH}`;
+        }
+
+        slide.appendChild(img);
+
+        if(data.text){
+
+            const title = document.createElement("div");
+
+            title.className = "title";
+            title.textContent = data.text;
+
+            slide.appendChild(title);
+        }
+    }
+
+    /* ----------------------------------------------
+       VIDEO
+    ---------------------------------------------- */
+
+    else if(data.video){
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "video-wrapper";
+
+        const iframe = document.createElement("iframe");
+
+        iframe.src = data.video;
+
+        iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+
+        iframe.allowFullscreen = true;
+
+        wrapper.appendChild(iframe);
+
+        slide.appendChild(wrapper);
+
+        if(data.text){
+
+            const title = document.createElement("div");
+
+            title.className = "title";
+            title.textContent = data.text;
+
+            slide.appendChild(title);
+        }
+
+    }
+
+    /* ----------------------------------------------
+       HTML CONTENT
+    ---------------------------------------------- */
+
+    else if(data.txt){
+
+        fetch(data.txt)
+            .then(response => response.text())
+            .then(html => {
+
+                const div = document.createElement("div");
+
+                div.className = "html-content";
+
+                div.innerHTML = html;
+
+                slide.appendChild(div);
+            })
+            .catch(() => {
+
+                const err = document.createElement("div");
+
+                err.textContent =
+                    "Error loading HTML file.";
+
+                slide.appendChild(err);
+            });
+    }
+
+    /* ----------------------------------------------
+       IMAGE + AUDIO
+    ---------------------------------------------- */
+
+    else if(data.image && data.audio){
+
+        const img = document.createElement("img");
+
+        img.src = data.image;
+        img.className = "media";
+
+        if(data.iW && data.iH){
+            img.style.aspectRatio =
+                `${data.iW} / ${data.iH}`;
+        }
+
+        slide.appendChild(img);
+
+        if(data.text){
+
+            const title = document.createElement("div");
+
+            title.className = "title";
+            title.textContent = data.text;
+
+            slide.appendChild(title);
+        }
+
+        const audio = document.createElement("audio");
+
+        audio.controls = true;
+
+        const source = document.createElement("source");
+
+        source.src = data.audio;
+
+        audio.appendChild(source);
+
+        slide.appendChild(audio);
+    }
+
+    carousel.appendChild(slide);
+}
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+function nextSlide(){
+
+    currentIndex =
+        (currentIndex + 1) % carouselData.length;
+
+    loadSlide(currentIndex);
+}
+
+function prevSlide(){
+
+    currentIndex =
+        (currentIndex - 1 + carouselData.length)
+        % carouselData.length;
+
+    loadSlide(currentIndex);
+}
+
+/* ==================================================
+   INITIALIZE
+================================================== */
+
+loadSlide(currentIndex);
+
+</script>
+
+</body>
+</html>

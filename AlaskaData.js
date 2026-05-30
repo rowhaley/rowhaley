@@ -17,7 +17,7 @@ const alaskaData = [
 	}
     },
     {
-	text: 'St Marys Take Out (Native Alaskan, Tom Cole, Don Bowman, Bob Whaley',
+	text: 'St Marys Take Out (Native Alaskan, Tom Cole, Don Bowman, Bob Whaley)',
 	image: 'images/YukonStMarysTakeOut.jpg',
 	iW: 5613,
 	iH: 4080,

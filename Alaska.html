@@ -83,20 +83,8 @@
 	  id = 0;
 	  alaskaData.forEach(function(item) {
 	      id += 1;
-	      new OpenSeadragon.MouseTracker({element: 'locator' + `${id}`, clickHandler: function(event) {
-		  if (item.video) {
-		      showDivVideo(item.text, item.video);
-		  }
-		  else if (item.audio) {
-		      showDivAudio(item.text, item.image, item.audio, item.iW, item.iH);
-		  }
-		  else if (item.txt) {
-		      showDivTxt(item.txt);
-		  }
-		  else {
-		      showDiv(item.text, item.image, item.iW, item.iH);
-		  }
-	  }})});
+	      new OpenSeadragon.MouseTracker({element: 'locator' + `${id}`, clickHandler: function(event){ showGeneric(item); }
+					     })});
       }
     </script>
   </body>

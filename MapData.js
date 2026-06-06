@@ -204,8 +204,8 @@ const mapData = [
     {
 	text:'Rafting, New River Gorge, July 2006',
 	image:'images/NewRiverJuly2006.jpg',
-	iH:2544,
-	iW:1696,
+	iW:2544,
+	iH:1696,
 	arrow:
 	{
 	    src:"images/tango-left-arrow-red.svg",

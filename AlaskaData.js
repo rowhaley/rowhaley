@@ -18,6 +18,26 @@ const alaskaData = [
 	}
     },
     {
+	text: 'Fort Selkirk, Canada',
+	image: 'images/Fort_Selkirk_Yukon.jpg',
+	iW: 2400,
+	iH: 1611,
+	audio: 'audio/FortSelkirk.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            /* x: 0.688,
+             y: 0.122, */
+            x: 0.793,
+            y: 0.204,
+            placement: 'RIGHT',
+            checkResize: false,
+	},
+    },
+    {
 	text: 'Calico Bluff, Eagle Alaska',
 	image: 'images/CalicoBluffStockman1911.jpg',
 	iW: 6563,
@@ -34,7 +54,7 @@ const alaskaData = [
             placement: 'RIGHT',
             checkResize: false,
 	},
-    },
+    },    
     {
 	text: 'Circle Alaska',
 	image: 'images/Circle_Alaska_1949_FWS.jpg',
@@ -50,6 +70,24 @@ const alaskaData = [
             x: 0.615,
             y: 0.076,
             placement: 'LEFT',
+            checkResize: false,
+	},
+    },
+    {
+	text: 'Yukon Flats',
+	image: 'images/YukonFlats.jpg',
+	iW: 1440,
+	iH: 959,
+	audio: 'audio/YukonFlats.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            x: 0.53,
+            y: 0.064,
+            placement: 'RIGHT',
             checkResize: false,
 	},
     },

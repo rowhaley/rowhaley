@@ -85,8 +85,8 @@ const alaskaData = [
 	    width:"16",
 	},
 	overlay: {
-            x: 0.53,
-            y: 0.064,
+            x: 0.605,
+            y: 0.065,
             placement: 'RIGHT',
             checkResize: false,
 	},

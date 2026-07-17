@@ -92,6 +92,24 @@ const alaskaData = [
 	},
     },
     {
+	text: 'Yukon River Bridge - Russell and Peter Depart',
+	image: 'images/Yukon_River_Bridge.jpg',
+	iW: 750,
+	iH: 500,
+	audio: 'audio/Yukon_River_Bridge.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            x: 0.495,
+            y: 0.084,
+            placement: 'RIGHT',
+            checkResize: false,
+	},
+    },
+    {
 	text: 'St Marys Take Out (Native Alaskan, Tom Cole, Don Bowman, Bob Whaley)',
 	image: 'images/YukonStMarysTakeOut.jpg',
 	iW: 5613,

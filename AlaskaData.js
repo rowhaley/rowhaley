@@ -1,6 +1,6 @@
 const alaskaData = [
     {
-	text: 'Yukon (Tom Cole, Peter Winsfield, Don Bowman, Russell Goins, Bob)',
+	text: 'Put In (Tom Cole, Peter Winsfield, Don Bowman, Russell Goins, Bob)',
 	image: 'images/YukonPutIn.jpg',
 	iW: 993,
 	iH: 780,
@@ -105,6 +105,42 @@ const alaskaData = [
 	overlay: {
             x: 0.495,
             y: 0.084,
+            placement: 'RIGHT',
+            checkResize: false,
+	},
+    },
+    {
+	text: 'Mosquitoes',
+	image: 'images/Culiseta_alaskaensis.jpg',
+	iW: 700,
+	iH: 466,
+	audio: 'audio/Mosquitoes.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            x: 0.305,
+            y: 0.14,
+            placement: 'RIGHT',
+            checkResize: false,
+	},
+    },
+    {
+	text: 'Kaltag',
+	image: 'images/Kaltag_Alaska.jpg',
+	iW: 960,
+	iH: 600,
+	audio: 'audio/Kaltag.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            x: 0.295,
+            y: 0.16,
             placement: 'RIGHT',
             checkResize: false,
 	},

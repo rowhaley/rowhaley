@@ -131,7 +131,7 @@ const alaskaData = [
 	text: 'Kaltag',
 	image: 'images/Kaltag_Alaska.jpg',
 	iW: 960,
-	iH: 600,
+	iH: 660,
 	audio: 'audio/Kaltag.mp3',
 	arrow: {
 	    src:"images/tango-right-arrow-red.svg",

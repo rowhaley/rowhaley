@@ -1,6 +1,24 @@
 const alaskaData = [
     {
-	text: 'Put In (Tom Cole, Peter Winsfield, Don Bowman, Russell Goins, Bob)',
+	text: 'Nenana River, 1989',
+	image: 'images/Nenana_River_near_Denali.jpg',
+	iW: 960,
+	iH: 720,
+	audio: 'audio/NenanaRiver.mp3',
+	arrow: {
+	    src:"images/tango-right-arrow-red.svg",
+	    alt:"Right arrow",
+	    width:"16",
+	},
+	overlay: {
+            x: 0.5,
+            y: 0.235,
+            placement: 'RIGHT',
+            checkResize: false
+	}
+    },
+    {
+	text: '5/30/92 Tom Cole, Peter Winsfield, Don Bowman, Russell Goins, Bob',
 	image: 'images/YukonPutIn.jpg',
 	iW: 993,
 	iH: 780,
@@ -29,8 +47,6 @@ const alaskaData = [
 	    width:"16",
 	},
 	overlay: {
-            /* x: 0.688,
-             y: 0.122, */
             x: 0.793,
             y: 0.204,
             placement: 'RIGHT',

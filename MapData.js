@@ -34,7 +34,7 @@ const mapData = [
 	}
     },
     {
-	text:'The Last Canoe Trip, Oct 10th, 2010',
+	text:'The Last Canoe Trip, Oct 1st, 2010',
 	image:'images/IMG_1826.JPG',
 	iW:3648,
 	iH:2736,

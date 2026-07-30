@@ -169,6 +169,22 @@ const mapData = [
         },
     },
     {
+	txt: 'txt/CedarCreek.html',
+	arrow:
+	{
+	    src:"images/tango-up-arrow-red.svg",
+	    alt:"Left arrow",
+	    width:"16",
+	},
+	overlay:
+	{
+	    x: 0.5601,
+            y: 0.381,
+            placement: 'TOP',
+            checkResize: false,
+        },
+    },    
+    {
 	txt: 'txt/Jerrys.html',
 	arrow: {
 	    src:"images/tango-right-arrow-red.svg",
